@@ -17,17 +17,24 @@ makeCacheMatrix <- function(x = matrix()) {
          m <<- NULL
      }
      get <- function() x
-     setmean <- function(mean) m <<- mean
-     getmean <- function() m
+     setsolve <- function(solve) m <<- solve
+     getsolve <- function() m
      list(set = set, get = get,
-          setmean = setmean,
-          getmean = getmean)
+          setsolve = setsolve,
+          getsolve = getsolve)
 }
 
 
 ## cacheSolve() uses makeCacheMatrix to shortcut the calculation by using a previously saved value and also performs the matrix inversion if it hadn't previously been performed
 
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-}
-
+     m <- x$getsolve()
+     if(!is.null(m)) {
+         message("getting cached data")
+         return(m)
+     }
+     data <- x$get()
+     m <- solve(data, ...)
+     x$setsolve(m)
+     m
+ }
