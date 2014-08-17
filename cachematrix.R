@@ -2,6 +2,11 @@
 ## it serves to teach us about using functions as arguments and storing data in another context or frame
 ## it has two functions, makeCacheMatrix() and cacheSolve()
 
+<<<<<<< HEAD
+=======
+
+## makeCacheMatrix holds the previously calculated value, if any, and the functions to check for, save and return it
+>>>>>>> origin/master
 
 ## makeCacheMatrix() is the context in which the previously calculated value, if any, and the functions to check for, save and return it
 
